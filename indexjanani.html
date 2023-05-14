@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AICTE Bot</title>
+
+
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta content="utf-8" http-equiv="encoding" />
+
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Import Font Awesome Icon Font-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0="
+      crossorigin="anonymous"
+    />
+
+    <!--Import materialize.css-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="static/css/materialize.min.css"
+    />
+
+    <!--Main css-->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+</head>
+
+<body>
+<div class="container">
+      <!-- Modal for rendering the charts, declare this if you want to render charts,
+         else you remove the modal -->
+
+      <div id="modal1" class="modal">
+        <canvas id="modal-chart"></canvas>
+      </div>
+
+      <!--chatbot widget -->
+      <div class="widget">
+
+        <div class="logo">
+<!--        <img scr='https://i.postimg.cc/Y0jBMS52/logo.png' border='0' id ="logoimg"/>-->
+<!--            <img src='https://i.postimg.cc/Y0jBMS52/logo.png' border='0' id ="logoimg"/>-->
+        <img src="C:\Users\Nivedhitha\Downloads\doctorvideo-unscreen.gif">
+        </div>
+
+        <div class="chat_header">
+          <!--Add the name of the bot here -->
+
+          <span class="chat_header_title">AICTE Bot</span>
+
+          <span class="dropdown-trigger" href="#" data-target="dropdown1">
+            <i class="material-icons"> more_vert </i>
+          </span>
+
+<div id="keybutton" onCLick="jooop()">
+                <i class="fa fa-keyboard-o"></i>
+            </div>
+
+
+          <!-- Dropdown menu-->
+
+            <div class = "formslink fs">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScl6asK4G-Ih33xMw5buxYs3Dna5EGrTQ179aOpL6xZWpDOtQ/viewform" target = "_blank">
+<!--            <i class="fa fa-home" ></i>-->
+                <span class="tooltipText ps">Query</span>
+                <i class="fa fa-file-text" ></i>
+            </a>
+            </div>
+          <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#" id="clear">Clear</a></li>
+            <li><a href="#" id="restart">Restart</a></li>
+            <li><a href="#" id="close">Close</a></li>
+          </ul>
+
+        </div>
+
+        <!--Chatbot contents goes here -->
+        <div class="chats" id="chats">
+          <div class="clearfix"></div>
+
+        </div>
+
+        <!--keypad for user to type the message -->
+        <div class="keypad">
+          <textarea
+            id="userInput"
+            placeholder="Say 'Hi' to start "
+            class="usrInput"
+          ></textarea>
+
+
+
+           <div id="sendButton" class="sen se">
+              <span class="tooltipText fb">Send</span>
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+          </div>
+
+            <div id="voiceButton" onCLick="record()" class="sen se">
+                <span class="tooltipText tw">Tap to Speak</span>
+                <i class="fa fa-microphone"></i>
+            </div>
+
+            <div id="come" onclick="MY()" class="sen se">
+                <span class="tooltipText ws">Mute Bot</span>
+                <i class="fa fa-volume-up" id="go"></i>
+            </div>
+
+
+
+
+
+        </div>
+      </div>
+
+<script type="text/javascript">
+		$("#go").click(function MY() {
+			$("#go").toggleClass("fa-volume-up fa-volume-off");
+                if(count%2==0){
+                  responsiveVoice.cancel();
+                  }
+                  count++;
+
+		});
+</script>
+
+      <!--bot profile-->
+      <div class="profile_div" id="profile_div">
+
+        <img class="imgProfile" src="C:/Users/Janani/Desktop/VirtusaHeathBot/doubtboy.png"/>
+      </div>
+
+      <!-- Bot pop-up intro -->
+      <div class="tap-target" data-target="profile_div">
+        <div class="tap-target-content">
+          <h4 class="black-text"> </h4>
+          <p class="black-text">
+<!--               I can help you get started with A I C T E related queries!!-->
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="static/js/lib/materialize.min.js"
+    ></script>
+    <script src="static/js/lib/uuid.min.js"></script>
+    <!--Main Script -->
+    <script type="text/javascript" src="static/js/script.js"></script>
+
+    <!--Chart.js Script -->
+    <script type="text/javascript" src="static/js/lib/chart.min.js"></script>
+    <script type="text/javascript" src="static/js/lib/showdown.min.js"></script>
+    <script>
+        function record() {
+            var recognition = new webkitSpeechRecognition();
+            recognition.lang = 'en-GB';
+
+            recognition.onresult = function(event) {
+                // console.log(event);
+                document.getElementById('userInput').value = event.results[0][0].transcript;
+            }
+            recognition.start();
+
+        }
+    </script>
+
+</body>
+
+<script>
+function jooop() {
+  var x = document.getElementById("keyboard");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+ </script>
+
+    <div id="keyboard" class="center">
+			<div id="firstLine" class="center">
+				<button type="button" value="1" onclick="input_Run(this.value);">1</button>
+				<button type="button" value="2" onclick="input_Run(this.value);">2</button>
+				<button type="button" value="3" onclick="input_Run(this.value);">3</button>
+				<button type="button" value="4" onclick="input_Run(this.value);">4</button>
+				<button type="button" value="5" onclick="input_Run(this.value);">5</button>
+				<button type="button" value="6" onclick="input_Run(this.value);">6</button>
+				<button type="button" value="7" onclick="input_Run(this.value);">7</button>
+				<button type="button" value="8" onclick="input_Run(this.value);">8</button>
+				<button type="button" value="9" onclick="input_Run(this.value);">9</button>
+				<button type="button" value="0" onclick="input_Run(this.value);">0</button>
+			</div>
+			<div id="secondLine" class="center">
+				<button type="button" value="q" onclick="input_Run(this.value);">q</button>
+				<button type="button" value="w" onclick="input_Run(this.value);">w</button>
+				<button type="button" value="e" onclick="input_Run(this.value);">e</button>
+				<button type="button" value="r" onclick="input_Run(this.value);">r</button>
+				<button type="button" value="t" onclick="input_Run(this.value);">t</button>
+				<button type="button" value="y" onclick="input_Run(this.value);">y</button>
+				<button type="button" value="u" onclick="input_Run(this.value);">u</button>
+				<button type="button" value="i" onclick="input_Run(this.value);">i</button>
+				<button type="button" value="o" onclick="input_Run(this.value);">o</button>
+				<button type="button" value="p" onclick="input_Run(this.value);">p</button>
+			</div>
+			<div id="thirdLine" class="center">
+				<button type="button" value="a" onclick="input_Run(this.value);">a</button>
+				<button type="button" value="s" onclick="input_Run(this.value);">s</button>
+				<button type="button" value="d" onclick="input_Run(this.value);">d</button>
+				<button type="button" value="f" onclick="input_Run(this.value);">f</button>
+				<button type="button" value="g" onclick="input_Run(this.value);">g</button>
+				<button type="button" value="h" onclick="input_Run(this.value);">h</button>
+				<button type="button" value="j" onclick="input_Run(this.value);">j</button>
+				<button type="button" value="k" onclick="input_Run(this.value);">k</button>
+				<button type="button" value="l" onclick="input_Run(this.value);">l</button>
+			</div>
+			<div id="fourthLine" class="center">
+				<button type="button" value="z" onclick="input_Run(this.value);">z</button>
+				<button type="button" value="x" onclick="input_Run(this.value);">x</button>
+				<button type="button" value="c" onclick="input_Run(this.value);">c</button>
+				<button type="button" value="v" onclick="input_Run(this.value);">v</button>
+				<button type="button" value="b" onclick="input_Run(this.value);">b</button>
+				<button type="button" value="n" onclick="input_Run(this.value);">n</button>
+				<button type="button" value="m" onclick="input_Run(this.value);">m</button>
+			</div>
+			<div id="fourthLine" class="center">
+				<button type="button" value=" " onclick="input_Run(this.value);">Space</button>
+				<button type="button" onclick="backspace();">Backspace</button>
+			</div>
+		</div>
+
+<script type="text/javascript">
+responsiveVoice.allowSpeech(true);
+</script>
+<script>
+			function input_Run(y){
+				document.getElementById("userInput").value += y;
+			}
+			function backspace(){
+				document.getElementById("userInput").value = document.getElementById("userInput").value.substring(0, document.getElementById("userInput").value.length -1);
+			}
+		</script>
+</body>
+</html>
